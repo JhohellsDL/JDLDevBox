@@ -49,6 +49,23 @@ dependencies {
     implementation(libs.androidx.ui.graphics)
     implementation(libs.androidx.ui.tooling.preview)
     implementation(libs.androidx.material3)
+
+    implementation("com.squareup.retrofit2:retrofit:2.9.0")
+    implementation("com.squareup.retrofit2:converter-gson:2.9.0")
+    implementation("com.google.code.gson:gson:2.10.1")
+    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.7.0")
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.7.3")
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.3")
+
+    implementation("io.insert-koin:koin-android:3.5.0")
+    implementation("io.insert-koin:koin-androidx-compose:3.5.0")
+    testImplementation("io.insert-koin:koin-test:3.5.0")
+    testImplementation("io.insert-koin:koin-test-junit4:3.5.0")
+    implementation("io.insert-koin:koin-androidx-navigation:3.5.0")
+
+    implementation(libs.androidx.navigation.compose)
+    implementation(libs.coil.compose)
+
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
