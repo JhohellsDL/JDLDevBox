@@ -5,7 +5,7 @@ import kotlinx.coroutines.flow.asSharedFlow
 
 class AppNavigatorImpl : AppNavigator {
 
-    private val _navEvents = MutableSharedFlow<NavEvent>()
+    private val _navEvents = MutableSharedFlow<NavEvent>(replay = 1)
     override val navEvents = _navEvents.asSharedFlow()
 
     override fun navigate(event: NavEvent) {
