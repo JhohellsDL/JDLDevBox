@@ -6,7 +6,7 @@ import org.koin.dsl.module
 
 val dataSourceModule = module {
     single {
-        CategoryDataSource(get())
+        CategoryDataSource(get(), get())
     }
     single {
         MetaDataSource(get())

@@ -2,16 +2,22 @@ package com.jdlstudios.jdldevbox.ui.screens.home
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.jdlstudios.jdldevbox.data.remote.model.CategoryResponse
+import com.jdlstudios.jdldevbox.data.remote.model.CategoriesResponse
 import com.jdlstudios.jdldevbox.domain.usecases.GetCategoryUseCase
+import com.jdlstudios.jdldevbox.navigation.AppNavigator // Importar AppNavigator
+import com.jdlstudios.jdldevbox.navigation.NavEvent // Importar NavEvent
 import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
 
-class HomeViewModel(private val getCategoryUseCase: GetCategoryUseCase) : ViewModel() {
+class HomeViewModel(
+    private val getCategoriesUseCase: GetCategoryUseCase,
+    private val appNavigator: AppNavigator // Inyectar AppNavigator
+) : ViewModel() {
 
-    private val _categories = MutableStateFlow(CategoryResponse(emptyList()))
-    val categories = _categories.asStateFlow()
+    private val _categories = MutableStateFlow(CategoriesResponse())
+    val categories: StateFlow<CategoriesResponse> = _categories.asStateFlow()
 
     init {
         fetchCategories()
@@ -20,11 +26,16 @@ class HomeViewModel(private val getCategoryUseCase: GetCategoryUseCase) : ViewMo
     private fun fetchCategories() {
         viewModelScope.launch {
             try {
-                val result = getCategoryUseCase()
-                _categories.value = result
+                val categories = getCategoriesUseCase()
+                _categories.value = categories
             } catch (e: Exception) {
-                e.printStackTrace()
+                // Manejar error
             }
         }
+    }
+
+    // Nueva función para manejar el clic en la categoría
+    fun onCategoryClick(categoryId: String) {
+        appNavigator.navigate(NavEvent.NavigateToToolsScreen)
     }
 }

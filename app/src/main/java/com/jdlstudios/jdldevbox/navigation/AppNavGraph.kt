@@ -7,6 +7,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import com.jdlstudios.jdldevbox.ui.screens.home.HomeScreen
 import com.jdlstudios.jdldevbox.ui.screens.splash.SplashScreen
+import com.jdlstudios.jdldevbox.ui.screens.tools.ToolsScreen
 
 @Composable
 fun AppNavGraph(
@@ -23,6 +24,12 @@ fun AppNavGraph(
         }
         composable(AppRoute.Home.route) {
             HomeScreen()
+        }
+        composable(AppRoute.Categories.route){
+            //CategoriesScreen()
+        }
+        composable(AppRoute.Tools.route) {
+            ToolsScreen()
         }
     }
 

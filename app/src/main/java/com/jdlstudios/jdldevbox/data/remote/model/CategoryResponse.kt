@@ -1,27 +1,39 @@
 package com.jdlstudios.jdldevbox.data.remote.model
 
-data class CategoryResponse(
-    val categories: List<Category> = emptyList()
+data class CategoriesResponse(
+    val version: String = "",
+    val categories: List<CategoryResponse> = emptyList(),
+    val tags: List<TagResponse> = emptyList()
 )
 
-data class Category(
+data class CategoryResponse(
     val id: String = "",
     val name: String = "",
     val description: String = "",
+    val path: String = "",
     val icon: String = "",
     val color: String = "",
-    val subcategories: List<Subcategory> = emptyList()
+    val subcategories: List<SubcategoryResponse> = emptyList()
 ) {
     override fun toString(): String {
         return "Category(id='$id', name='$name', description='$description', icon='$icon', color='$color')"
     }
 }
 
-data class Subcategory(
+data class SubcategoryResponse(
     val id: String = "",
     val name: String = "",
 ) {
     override fun toString(): String {
         return "Subcategory(id='$id', name='$name')"
+    }
+}
+
+data class TagResponse(
+    val name: String = "",
+    val color: String = ""
+) {
+    override fun toString(): String {
+        return "TagResponse(name='$name', color='$color')"
     }
 }
