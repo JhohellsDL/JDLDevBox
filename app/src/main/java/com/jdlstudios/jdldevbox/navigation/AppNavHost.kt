@@ -38,6 +38,10 @@ fun AppNavHost(
                     Log.d("AppNavHost", "Navigating to CategoriesScreen.")
                     navController.navigate(AppRoute.Categories.route)
                 }
+                NavEvent.NavigateToToolsScreen -> {
+                    Log.d("AppNavHost", "Navigating to ToolsScreen.")
+                    navController.navigate(AppRoute.Tools.route)
+                }
                 NavEvent.NavigateToSettingsScreen -> {
                     Log.d("AppNavHost", "Navigating to SettingsScreen.")
                     navController.navigate(AppRoute.Settings.route)

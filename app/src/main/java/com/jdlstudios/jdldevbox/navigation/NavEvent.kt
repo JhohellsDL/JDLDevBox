@@ -4,6 +4,7 @@ sealed class NavEvent {
     object NavigateToHome : NavEvent()
     object NavigateToMetaScreen : NavEvent()
     object NavigateToCategoriesScreen : NavEvent()
+    object NavigateToToolsScreen : NavEvent()
     data class NavigateToCategoryDetailScreen(val categoryId: String) : NavEvent()
     object NavigateToSettingsScreen : NavEvent()
     object NavigateToAboutScreen : NavEvent()
