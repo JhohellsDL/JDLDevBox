@@ -1,6 +1,7 @@
 package com.jdlstudios.jdldevbox.di
 
 import com.jdlstudios.jdldevbox.data.remote.CategoriesApi
+import com.jdlstudios.jdldevbox.data.remote.CategoryApi
 import com.jdlstudios.jdldevbox.data.remote.MetaConfigService
 import org.koin.dsl.module
 import retrofit2.Retrofit
@@ -20,5 +21,8 @@ val networkModule = module {
     }
     single {
         get<Retrofit>().create(CategoriesApi::class.java)
+    }
+    single{
+        get<Retrofit>().create(CategoryApi::class.java)
     }
 }
