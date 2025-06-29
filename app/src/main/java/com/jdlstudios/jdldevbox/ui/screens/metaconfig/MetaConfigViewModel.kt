@@ -12,7 +12,7 @@ import kotlinx.coroutines.launch
 
 class MetaConfigViewModel(private val getMetaUseCase: GetMetaConfigUseCase): ViewModel() {
 
-    private val _categories = MutableStateFlow<CategoryResponse>(CategoryResponse(emptyList()))
+    private val _categories = MutableStateFlow<CategoryResponse>(CategoryResponse())
     val categories: StateFlow<CategoryResponse> get() = _categories.asStateFlow()
 
     private val _meta = MutableStateFlow<MetaConfig>(MetaConfig())
